@@ -1,9 +1,9 @@
 ;;;; moira.asd
 
 (asdf:defsystem #:moira
-  :description "Describe moira here"
-  :author "Your Name <your.name@example.com>"
-  :license "Specify license here"
+  :description "Monitor and restart background threads."
+  :author "Paul M. Rodriguez <pmr@ruricolist.com>"
+  :license "MIT"
   :depends-on (#:alexandria
                #:serapeum
                #:trivial-features
