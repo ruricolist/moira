@@ -9,7 +9,7 @@
    (#:nix #:osicat-posix))
   (:export #:thread-id
            #:save-current-thread-id
-           #:make-thread
+           #:make-thread-saving-id
            #:spawn-thread
            #:spawn
            #:start-monitor

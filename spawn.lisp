@@ -1,11 +1,11 @@
 (in-package #:moira)
 
-(defun make-thread (thunk &rest args)
+(defun make-thread-saving-id (thunk &rest args)
   "Like `bt:make-thread', but save the id of the resulting thread so
 it can be retrieved later with `moira:thread-id'.
 
-Using `moira:make-thread' lets you start a thread that is not
-monitored, but does have its ID tracked."
+Using `moira:make-thread-saving-id' lets you start a thread that is
+not monitored, but does have its ID tracked."
   (apply #'bt:make-thread
          (lambda ()
            (save-current-thread-id)
@@ -13,9 +13,10 @@ monitored, but does have its ID tracked."
          args))
 
 (defun make-thread-and-wait (thunk &rest args)
-  "Like make-thread, but wait until the thread is actually running."
+  "Like `make-thread-saving-id', but wait to return until the thread
+is actually running."
   (lret* ((ready nil)
-          (thread (apply #'make-thread
+          (thread (apply #'make-thread-saving-id
                          (lambda ()
                            (setf ready t)
                            (funcall thunk))

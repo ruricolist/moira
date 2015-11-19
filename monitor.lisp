@@ -4,7 +4,7 @@
 
 (defvar *monitor* nil)
 
-(defun monitor-threads ()
+(defun monitor-loop ()
   (loop until monitor-flag
         do (sleep 1)
            (mapc #'ensure-alive (list-monitored-threads))
@@ -16,7 +16,7 @@
       (live-thread *monitor*)
       ((or no-thread dead-thread)
        (setf *monitor*
-             (make-thread-and-wait #'monitor-threads
+             (make-thread-and-wait #'monitor-loop
                                    :name "Thread monitor (Moira)"))))))
 
 (defun stop-monitor ()
