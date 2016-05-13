@@ -13,7 +13,7 @@ Once the monitor is started, you can spawn new threads:
     (moira:spawn "Background worker"
       ...))
 
-which is syntactic sugar for
+Which is syntactic sugar for
 
     (moira:spawn-thread
      (lambda () ...)
