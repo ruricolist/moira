@@ -14,15 +14,11 @@
   (synchronized ('*monitored-threads*)
     (nix *monitored-threads*)))
 
-(defclass monitored-thread ()
-  ((lock
-    :initform (bt:make-lock)
-    :reader serapeum:monitor
-    :reader monitored-thread.lock)
-   (thread
-     :initform nil
-     :type a-thread
-     :reader monitored-thread.thread)
+(defclass monitored-thread (serapeum:synchronized)
+  ((thread
+    :initform nil
+    :type a-thread
+    :reader monitored-thread.thread)
    (done
     :initform nil
     :type boolean
