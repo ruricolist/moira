@@ -24,10 +24,8 @@
        *thread-ids*)))
 
   (defun save-current-thread-id ()
-    (with-thread-id-lock ()
-      (let ((thread (bt:current-thread))
-            (tid (nix:gettid)))
-        (setf (gethash thread *thread-ids*) tid)))))
+    ;; Overwritten in thread-ids-linux.lisp
+    (values)))
 
 #-linux
 (progn

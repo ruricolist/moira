@@ -5,8 +5,7 @@
   #+sbcl
   (:local-nicknames
    (#:bt #:bordeaux-threads)
-   (#:tg #:trivial-garbage)
-   (#:nix #:osicat-posix))
+   (#:tg #:trivial-garbage))
   (:export #:thread-id
            #:save-current-thread-id
            #:make-thread-saving-id
