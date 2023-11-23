@@ -31,3 +31,6 @@ Although this will not affect the spawned threads.
 On Linux only, Moira also tracks the thread ID (value of `gettid`) of
 the Lisp threads it launches. This can be useful for tracking the
 resource usage of individual threads.
+
+You can avoid the Osicat dependency, and not have this latest feature
+on Linux, by loading `moira/light`.
