@@ -23,11 +23,11 @@
              k)))
        *thread-ids*)))
 
+  ;; Ensure the later redefinition for linux to be seen.'
+  (declaim (notinline save-current-thread-id))
   (defun save-current-thread-id ()
-    (with-thread-id-lock ()
-      (let ((thread (bt:current-thread))
-            (tid (nix:gettid)))
-        (setf (gethash thread *thread-ids*) tid)))))
+    ;; Overwritten in thread-ids-linux.lisp
+    (values)))
 
 #-linux
 (progn
