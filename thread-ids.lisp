@@ -23,6 +23,8 @@
              k)))
        *thread-ids*)))
 
+  ;; Ensure the later redefinition for linux to be seen.'
+  (declaim (notinline save-current-thread-id))
   (defun save-current-thread-id ()
     ;; Overwritten in thread-ids-linux.lisp
     (values)))
